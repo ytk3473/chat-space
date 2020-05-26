@@ -1,60 +1,55 @@
-#DB設計
+# DB設計
 
 
-##usersテーブル
+## usersテーブル
 
 |Column|Type|Option|
 |------|----|------|
-|id|integer||
 |name|string|null: false|
 |email|string|null: false|
 |pass|string|null: false|
 
-###Association
+### Association
 
 - has_many :messages
 - has_many :users_groups
 - has_many :groups, through: :users_groups
 
 
-##messagesテーブル
+## messagesテーブル
 
 |Column|Type|Option|
 |------|----|------|
-|id|integer||
-|text|text||
-|image|string||
+|text|text|add_index|
+|image|string|add_index|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-|time|timestamp|null: false|
 
-###Association
+### Association
 belongs_to :user
 belongs_to :group
 
 
-##groupsテーブル
+## groupsテーブル
 
 |Column|Type|Option|
 |------|----|------|
-|id|integer||
 |name|string|null: false|
 
-###Association
+### Association
 has_many :messages
 has_many :users_groups
 has_many :users, through: :users_groups
 
 
-##users_groupsテーブル
+## user_groupsテーブル
 
 |Column|Type|Option|
 |------|----|------|
-|id|integer||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
-###Association
+### Association
 belongs_to :message
 belongs_to :user
 
