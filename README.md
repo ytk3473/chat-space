@@ -5,15 +5,15 @@
 
 |Column|Type|Option|
 |------|----|------|
-|name|string|null: false|
+|name|string|add_index, null: false|
 |email|string|null: false|
 |pass|string|null: false|
 
 ### Association
 
 - has_many :messages
-- has_many :users_groups
-- has_many :groups, through: :users_groups
+- has_many :user_groups
+- has_many :groups, through: :user_groups
 
 
 ## messagesテーブル
@@ -34,12 +34,12 @@ belongs_to :group
 
 |Column|Type|Option|
 |------|----|------|
-|name|string|null: false|
+|name|string|add_index, null: false|
 
 ### Association
 has_many :messages
-has_many :users_groups
-has_many :users, through: :users_groups
+has_many :user_groups
+has_many :users, through: :user_groups
 
 
 ## user_groupsテーブル
