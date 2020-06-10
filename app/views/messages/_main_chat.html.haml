@@ -1,0 +1,49 @@
+.Main_chat
+  .Right_header
+    .Group_info
+      .Group_info__group_name
+        my group
+      .Group_info__group_member
+        Member : yataki
+    -# .Right_header__edit_button
+    = link_to "#", class: "Right_header__edit_button" do
+      Edit
+
+
+  .Right_body
+    .A_chat
+      .Chat_info
+        .Chat_info__users_name
+          yataki
+        .Chat_info__datetime
+          2020/05/30(sat) 12:00
+      .A_chat__text
+        hello
+    
+    .A_chat
+      .Chat_info
+        .Chat_info__users_name
+          yataki
+        .Chat_info__datetime
+          2020/05/30(sat) 12:00
+      .A_chat__text
+        hello
+    
+    .A_chat
+      .Chat_info
+        .Chat_info__users_name
+          yataki
+        .Chat_info__datetime
+          2020/05/30(sat) 12:00
+      .A_chat__text
+        hello
+    
+
+  .Form
+    %form.new_message
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          =icon('fas', 'image')
+          %input{type:"file", class:"input-box__image__file"}
+      %input{type: "submit", class: "submit-btn"}
