@@ -11,10 +11,13 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to root_path, notice:'グループを作成しました'
-    else
-      render :new
-    end
+    group_setting('グループを作成しました', :new)
+
+    # if @group.save
+    #   redirect_to root_path, notice:'グループを作成しました'
+    # else
+    #   render :new
+    # end
   end
   def edit
     @group = Group.find(params[:id])
@@ -22,15 +25,24 @@ class GroupsController < ApplicationController
   
   def update
     @group = Group.find(params[:id])
-    if @group.save
-      redirect_to root_path, notice:'グループを更新しました'
-    else
-      render :edit
-    end
+    group_setting('グループを更新しました', :edit)
+    # if @group.save
+    #   redirect_to root_path, notice:'グループを更新しました'
+    # else
+    #   render :edit
+    # end
   end
 
   private
   def group_params
     params.require(:group).permit(:name, user_ids: [])
+  end
+
+  def group_setting(message, view)
+    if @group.save
+      redirect_to root_path, notice: message
+    else
+      render view
+    end
   end
 end
