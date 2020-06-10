@@ -10,7 +10,6 @@ class GroupsController < ApplicationController
   
   def create
     @group = Group.new(group_params)
-    if @group.save
     group_setting('グループを作成しました', :new)
 
     # if @group.save
