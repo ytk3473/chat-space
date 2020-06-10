@@ -2,13 +2,13 @@
   .Left_header
     .User_info
       .User_name
-        yataki
+        = current_user.name
       %ul.User_icons
         %li.User_icons__edit
           = link_to "#", class: "icons" do
             = icon("far", "edit", class: "edit")
         %li.User_icons__setting
-          = link_to "#", class: "icons" do
+          = link_to edit_user_path(current_user), class: "icons" do
             = icon("fas", "cog", class: "cog")
   .Group_lists
     .Group
