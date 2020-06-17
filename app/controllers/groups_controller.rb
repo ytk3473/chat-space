@@ -39,7 +39,7 @@ class GroupsController < ApplicationController
 
   def group_setting(message, view)
     if @group.save
-      redirect_to root_path, notice: message
+      redirect_to group_messages_path(@group), notice: message
     else
       render view
     end
