@@ -1,11 +1,8 @@
 class MessagesController < ApplicationController
   before_action :set_group
   def index
-    # binding.pry
     @message = Message.new
     @messages = @group.messages.includes(:user)
-    # @users = @group.users
-    # binding.pry
   end
 
   def create
@@ -15,7 +12,6 @@ class MessagesController < ApplicationController
     else
       @messages = @group.messages.includes(:user)
       flash.now[:alert] = 'メッセージを入力してください'
-      # binding.pry
       render :index
       # redirect_to group_messages_path(@group), notice: 'メッセージを入力してください'
       
